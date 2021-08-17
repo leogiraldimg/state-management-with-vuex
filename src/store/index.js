@@ -6,7 +6,6 @@ const store = createStore({
   state() {
     return {
       user: null,
-      productFilter: null,
       products: [
         {
           id: '24ab7b14-f935-44c1-b91b-8598123ea54a',
@@ -55,16 +54,13 @@ const store = createStore({
     };
   },
   getters: {
-    filteredProducts(state) {
-      return filterProducts(state.productFilter, state.products);
+    getFilteredProducts(state) {
+      return (filter) => filterProducts(filter, state.products);
     },
   },
   mutations: {
     setUser(state, user) {
       state.user = user;
-    },
-    setProductFilter(state, filter) {
-      state.productFilter = filter;
     },
   },
 });
