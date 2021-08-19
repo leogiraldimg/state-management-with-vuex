@@ -55,9 +55,10 @@ export default {
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email,
+        password: this.password,
       };
 
-      this.$store.commit('setUser', user);
+      this.$store.dispatch('registerUser', user);
 
       this.$router.push('/products');
     },

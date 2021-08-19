@@ -29,6 +29,16 @@ const store = createStore({
         commit('setProducts', result.data);
       });
     },
+    registerUser({ commit }, user) {
+      axios.post('/api/register', user).then((result) => {
+        commit('setUser', result.data);
+      });
+    },
+    signIn({ commit }, userLogin) {
+      axios.post('/api/sign-in', userLogin).then((result) => {
+        commit('setUser', result.data);
+      });
+    },
   },
 });
 
