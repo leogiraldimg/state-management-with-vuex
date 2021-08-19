@@ -51,6 +51,8 @@ export default {
   methods: {
     registerUser() {
       this.saving = true;
+      this.registerError = false;
+
       const user = {
         firstName: this.firstName,
         lastName: this.lastName,
@@ -58,7 +60,12 @@ export default {
         password: this.password,
       };
 
-      this.$store.dispatch('registerUser', user);
+      this.$store
+        .dispatch('registerUser', user)
+        .then(() => this.$router.push('/products'))
+        .catch(() => {
+          this.registerError = true;
+        });
 
       this.$router.push('/products');
     },

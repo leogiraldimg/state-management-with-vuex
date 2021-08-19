@@ -30,12 +30,12 @@ const store = createStore({
       });
     },
     registerUser({ commit }, user) {
-      axios.post('/api/register', user).then((result) => {
+      return axios.post('/api/register', user).then((result) => {
         commit('setUser', result.data);
       });
     },
     signIn({ commit }, userLogin) {
-      axios.post('/api/sign-in', userLogin).then((result) => {
+      return axios.post('/api/sign-in', userLogin).then((result) => {
         commit('setUser', result.data);
       });
     },
