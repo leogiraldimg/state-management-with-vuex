@@ -39,6 +39,9 @@ const store = createStore({
         commit('setUser', result.data);
       });
     },
+    signOut({ commit }, userLogin) {
+      return axios.post('/api/sign-out', userLogin).then(() => commit('setUser', null));
+    },
   },
 });
 

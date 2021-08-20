@@ -115,4 +115,8 @@ app.post('/api/sign-in', (req, res) => {
   } else { res.status(401).send('Invalid user credentials.'); }
 });
 
+app.post('/api/sign-out', (req, res) => {
+  setTimeout(() => { res.status(200).send('Signed Out'); }, 10000);
+});
+
 app.listen(8081, () => console.log('API Server listening on port 8081!'));
