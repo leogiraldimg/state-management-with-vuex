@@ -43,7 +43,7 @@ export default {
       };
 
       this.$store
-        .dispatch('signIn', userLogin)
+        .dispatch('users/signIn', userLogin)
         .then(() => this.$router.push('/products'))
         .catch(() => {
           this.signInError = true;

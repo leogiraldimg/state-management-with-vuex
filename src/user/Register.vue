@@ -61,7 +61,7 @@ export default {
       };
 
       this.$store
-        .dispatch('registerUser', user)
+        .dispatch('users/registerUser', user)
         .then(() => this.$router.push('/products'))
         .catch(() => {
           this.registerError = true;
