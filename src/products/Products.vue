@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Products',
   created() {
@@ -42,8 +44,9 @@ export default {
     },
   },
   computed: {
+    ...mapGetters('products', ['getFilteredProducts']),
     visibleProducts() {
-      return this.$store.getters['products/getFilteredProducts'](this.filter);
+      return this.getFilteredProducts(this.filter);
     },
   },
 };
