@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import LoadingSpinner from '../shared/LoadingSpinner.vue';
 
 export default {
@@ -49,6 +51,9 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      register: 'users/registerUser',
+    }),
     registerUser() {
       this.saving = true;
       this.registerError = false;
@@ -60,8 +65,7 @@ export default {
         password: this.password,
       };
 
-      this.$store
-        .dispatch('users/registerUser', user)
+      this.register(user)
         .then(() => this.$router.push('/products'))
         .catch(() => {
           this.registerError = true;
